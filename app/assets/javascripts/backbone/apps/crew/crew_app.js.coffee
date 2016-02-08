@@ -4,16 +4,19 @@
 		appRoutes:
 			"crew/:id/edit": "edit"		
 			"crew"         : "list"
+
+		before: ->
+		  App.vent.trigger "nav:choose", "Crew"
 	
 	API =
-		list: ->	
+		list: ->			  
 			new CrewApp.List.Controller 
 
 		newCrew: (region) ->
 			new CrewApp.New.Controller
 			  region: region
 
-		edit: (id, member) ->
+		edit: (id, member) ->		  
 		  new CrewApp.Edit.Controller
 		    id: id
 		    crew: member

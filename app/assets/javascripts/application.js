@@ -17,6 +17,7 @@
 //= require js-routes
 //= require syphon
 //= require jquery.spin
+//= require backbone-routefilter
 
 //= require_tree ./config
 

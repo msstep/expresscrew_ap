@@ -3,15 +3,24 @@
   class Entities.Nav extends Entities.Model
     isDivider: -> @get("divider")
 
+    choose: ->
+      @set chosen: true
+
+    unchoose: ->
+      @set chosen: false
+
+    chooseByCollection: ->
+      @collection.choose @
+
   class Entities.NavsCollection extends Entities.Collection
-    model: Entities.Nav
+    model: Entities.Nav    
+
+    choose: (model) ->
+      _(@where chosen: true).invoke("unchoose")
+      model.choose()
 
     chooseByName: (nav) ->
-      @choose (@findWhere(name: nav) or @first())
-
-    #@include "SingleChooser"
-    #@contains "SingleChooser"
-    
+      @choose @findWhere(name: nav)
 
   API =
     getNavs: ->
