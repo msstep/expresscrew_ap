@@ -10,6 +10,7 @@ class CrewController < ApplicationController
   end
 
   def show
+     #sleep 3
   	 @member = Crew.find params[:id]
   end
 
@@ -24,7 +25,7 @@ class CrewController < ApplicationController
   end	
 
   def create 
-  	 sleep 2
+  	 #sleep 2
 
   	 @member = Crew.new
   	 if @member.update_attributes crew_params

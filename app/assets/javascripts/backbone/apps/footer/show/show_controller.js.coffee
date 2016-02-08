@@ -2,7 +2,8 @@
 
   class Show.Controller extends App.Controllers.Application
 
-    show: ->
+    initialize: ->
+      console.log "footer show 1"
       showView = @getShowView()
       @show showView
 

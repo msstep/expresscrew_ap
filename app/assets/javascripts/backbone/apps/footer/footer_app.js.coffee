@@ -3,6 +3,7 @@
 
   API =
     show: ->
+      console.log "footer show"
       new FooterApp.Show.Controller
         region: App.footerRegion
 

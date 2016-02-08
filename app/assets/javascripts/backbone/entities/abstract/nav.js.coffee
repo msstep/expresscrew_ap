@@ -9,7 +9,9 @@
     chooseByName: (nav) ->
       @choose (@findWhere(name: nav) or @first())
 
-    @include "SingleChooser"
+    #@include "SingleChooser"
+    #@contains "SingleChooser"
+    
 
   API =
     getNavs: ->
