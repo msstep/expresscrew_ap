@@ -16,8 +16,21 @@
 
     tagName: "li"
 
-    events: 
+    events:
       "click a" : "choose"
+
+    modelEvents:
+      "change:chosen" : "changeChosen"
+
+    changeChosen: (model, value, options) ->
+      @$el.toggleClass "active", value
+
+    onRender: ->
+      @$el.addClass "active" if @model.isChosen()
+
+    choose: (e) ->
+      e.preventDefault() 
+      @model.chooseByCollection()
 
   class List.Navs extends App.Views.CollectionView
     tagName: "ul"

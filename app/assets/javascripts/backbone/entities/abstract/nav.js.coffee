@@ -2,6 +2,7 @@
 
   class Entities.Nav extends Entities.Model
     isDivider: -> @get("divider")
+    isChosen: -> @get("chosen")
 
     choose: ->
       @set chosen: true
@@ -20,7 +21,7 @@
       model.choose()
 
     chooseByName: (nav) ->
-      @choose @findWhere(name: nav)
+      @choose (@findWhere(name: nav) or @first())
 
   API =
     getNavs: ->

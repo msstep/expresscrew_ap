@@ -7,10 +7,17 @@
 
   API =
     list: (region) ->
-      return App.execute "admin:list"
-      new AdminLocationsApp.List.Controller
-
+      return App.execute "admin:list", "Locations" if not region
       
+      new AdminLocationsApp.List.Controller
+        region: region
+
+  App.vent.on "admin:nav:chose", (nav, region) ->
+    return  if nav isnt "Locations"
+    
+    App.navigate "admin/locations"
+    API.list region
+
   App.addInitializer ->
     new AdminLocationsApp.Router
       controller: API

@@ -5,11 +5,16 @@
       "admin": "list"
     
   API =
-    list: ->
+    list: (nav) ->
+      
       App.vent.trigger "nav:choose", "Admin"
       new AdminApp.List.Controller
+        nav: nav
 
-      
+  App.commands.setHandler "admin:list", (nav) ->
+    API.list nav   
+
+
   App.addInitializer ->
     new AdminApp.Router
       controller: API
