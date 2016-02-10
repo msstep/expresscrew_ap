@@ -18,7 +18,8 @@
 		App.module("FooterApp").start()
 
   App.vent.on          "nav:choose", (nav) -> App.navs.chooseByName nav
- App.reqres.setHandler "default:region", -> App.mainRegion		
+  App.reqres.setHandler "default:region", -> App.mainRegion	
+  App.reqres.setHandler "concern", (concern) -> App.Concerns[concern]	
    
 	#App.on "initialize:after", ->
 	App.on "start", ->	
