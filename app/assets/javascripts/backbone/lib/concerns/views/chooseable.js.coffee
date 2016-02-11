@@ -14,6 +14,6 @@
       e.preventDefault()
       @model.choose()
 
-    # unchoose: (e) ->
-    #   e.preventDefault()
-    #   @model.unchoose()
+    unchoose: (e) ->
+      e.preventDefault()
+      @model.unchoose()

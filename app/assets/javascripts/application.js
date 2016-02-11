@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require underscore
+//= require underscore-strings
 //= require backbone
 //= require marionette
 //= require js-routes
@@ -20,6 +21,9 @@
 //= require jquery.spin
 //= require backbone-chooser
 //= require backbone-routefilter
+//= require backbone-mutators
+//= require foundation/foundation
+//= require foundation/foundation.reveal
 
 //= require_tree ./config
 
@@ -30,6 +34,7 @@
 //= require_tree ./backbone/lib/utilities
 //= require_tree ./backbone/lib/views
 //= require_tree ./backbone/lib/controllers
+//= require_tree ./backbone/lib/regions
 //= require_tree ./backbone/lib/components
 
 //= require_tree ./backbone/entities

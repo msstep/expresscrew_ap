@@ -77,4 +77,9 @@
     formController = new Form.Controller
       view: contentView
       config: options
-    formController.formLayout  
+    formController.formLayout 
+
+  App.reqres.setHandler "form:component", (contentView, options = {}) ->
+    throw new Error "Form Component requires a contentView to be passed in" if not contentView     
+    options.contentView = contentView
+    new Form.Controller options    

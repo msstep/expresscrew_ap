@@ -7,7 +7,12 @@
 
     for obj in objs
       concern = App.request "concern", obj      
-      Cocktail.mixin klass, concern
+
+      concern.beforeIncluded?.call(klass.prototype, klass, concern)
+
+      Cocktail.mixin klass, _(concern).omit(mixinKeywords...)      
+
+      concern.afterIncluded?.call(klass.prototype, klass, concern)
     
     return klass
 
@@ -20,11 +25,4 @@
     for key, klasses of module
       for klass in klasses
         obj = window[key] or App[key]
-        # console.log "000"
-        # console.log module
-        # console.log key
-        # console.log klasses
-        # console.log klass
-        # console.log obj[klass]
-        # console.log "111"
         obj[klass].include = include # if  obj[klass] 

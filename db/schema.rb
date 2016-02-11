@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101140551) do
+ActiveRecord::Schema.define(version: 20160211065207) do
 
   create_table "crews", force: true do |t|
     t.integer  "age"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20160101140551) do
     t.string   "species"
     t.string   "origin"
     t.text     "quote"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "danger"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

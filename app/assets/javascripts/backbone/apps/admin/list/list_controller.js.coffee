@@ -5,9 +5,9 @@
     initialize: (options) ->
       adminNavs = App.request "admin:nav:entities"
 
-      @listenTo adminNavs, "change:chosen", (model, value, options) ->
+      @listenTo adminNavs, "collection:chose:one", (chosen) ->
         #console.info "admin nav changed", model, value, @layout
-        App.vent.trigger "admin:nav:chose", model.get("name"), @layout.articleRegion if value
+        App.vent.trigger "admin:nav:chose", chosen.get("name"), @layout.articleRegion
 
       @layout = @getLayoutView()
 

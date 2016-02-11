@@ -20,14 +20,13 @@
 
     # choose: (model) ->
     #   _(@where chosen: true).invoke("unchoose")
-    #   model.choose()
+    #    model.choose()
 
-    chooseByName: (nav) ->
+    chooseByName: (nav) ->       
       @choose (@findWhere(name: nav) or @first())
 
     @include "SingleChooser"  
-    console.log "33333"
-    console.log @
+
 
   API =
     getNavs: ->
